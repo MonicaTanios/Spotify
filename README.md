@@ -1,2 +1,2 @@
 # Spotify
-my ibm spotify 
+My IBM Spotify
