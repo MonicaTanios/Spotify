@@ -1,14 +1,50 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank µ
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="mainPage-container">
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <h1>Choose your favourite genre here...</h1>
+
+  <div class="mainGrid">
+
+    <div class="Music" id="chillMusic" (click)="navigate('chill')">
+        <label class="anyLabel">Chill</label> 
+        <br>
+        <br>
+        <ion-icon name="bed" style="color: white; font-size: 50px"></ion-icon>
+      </div>
+    
+    <div class="Music" id="partyMusic" (click)="navigate('party')">
+      <label class="anyLabel">Party</label> 
+      <br>
+      <br>
+      <ion-icon name="beer" style="color: white; font-size: 50px"></ion-icon>
+    </div>
+
+    <div class="Music" id="popMusic" (click)="navigate('pop')">
+      <label class="anyLabel">Pop</label> 
+      <br>
+      <br>
+      <ion-icon name="microphone" style="color: white; font-size: 50px"></ion-icon>
+    </div>
+
+    <div class="Music" id="workoutMusic" (click)="navigate('work-out')">
+      <ion-icon name="fitness" style="color: white; font-size: 50px"></ion-icon>
+      <br>
+      <br>
+      <label class="anyLabel">Workout</label>       
+    </div>
+
+    <div class="Music" id="moodMusic" (click)="navigate('classical')">
+      <label class="anyLabel">Classical</label>
+      <br>
+      <br>
+      <ion-icon name="radio" style="color: white; font-size: 50px"></ion-icon>
+    </div>
+
+    <div class="Music" id="rockMusic" (click)="navigate('rock')">
+      <label class="anyLabel">Rock</label>
+      <br>
+      <br>
+      <ion-icon name="musical-notes" style="color: white; font-size: 50px"></ion-icon>
+    </div>
+
   </div>
-</ion-content>
+</div>
