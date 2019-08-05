@@ -11,7 +11,7 @@ export class SongsPage implements OnInit {
   constructor(private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    //test
+    
   }
 
 }
