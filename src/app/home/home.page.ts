@@ -11,8 +11,7 @@ export class HomePage {
   private trackGenre: string;
   public allGenres: any  = [];
 
-  constructor(//private _spotifyService: SpotifyService,
-    private router: Router) {
+  constructor(private router: Router) {
   }
 
   navigate(trackGenre) {
