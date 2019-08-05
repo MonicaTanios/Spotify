@@ -5,14 +5,13 @@
 </ion-header>
 
 <ion-content>
-    <!-- <ion-item *ngFor="let track of data"  > -->
-      <ion-item>
+    <ion-item *ngFor="let track of data" >
           <ion-avatar>
             <ion-icon name="play"></ion-icon>
           </ion-avatar>
           <ion-label>
-            <h2>HEY</h2>
-            <p>Listen, to this song .. !</p>
+            <h2>{{ track['name'] }}</h2>
+            <p> {{ track['href'] }} </p>
           </ion-label>
     </ion-item>
 </ion-content>
