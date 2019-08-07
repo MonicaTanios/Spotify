@@ -4,47 +4,12 @@
 
   <div class="mainGrid">
 
-    <div class="Music" id="chillMusic" (click)="navigate('chill')">
-        <label class="anyLabel">Chill</label> 
+    <div class="Music" *ngFor="let genre of allGenres" (click)="navigate(genre)">
+        <label class="anyLabel">{{ genre }}</label> 
         <br>
         <br>
-        <ion-icon name="bed" style="color: white; font-size: 50px"></ion-icon>
+        <ion-icon name="musical-notes" style="color: white; font-size: 50px"></ion-icon>
       </div>
-    
-    <div class="Music" id="partyMusic" (click)="navigate('party')">
-      <label class="anyLabel">Party</label> 
-      <br>
-      <br>
-      <ion-icon name="beer" style="color: white; font-size: 50px"></ion-icon>
-    </div>
-
-    <div class="Music" id="popMusic" (click)="navigate('pop')">
-      <label class="anyLabel">Pop</label> 
-      <br>
-      <br>
-      <ion-icon name="microphone" style="color: white; font-size: 50px"></ion-icon>
-    </div>
-
-    <div class="Music" id="workoutMusic" (click)="navigate('work-out')">
-      <ion-icon name="fitness" style="color: white; font-size: 50px"></ion-icon>
-      <br>
-      <br>
-      <label class="anyLabel">Workout</label>       
-    </div>
-
-    <div class="Music" id="moodMusic" (click)="navigate('classical')">
-      <label class="anyLabel">Classical</label>
-      <br>
-      <br>
-      <ion-icon name="radio" style="color: white; font-size: 50px"></ion-icon>
-    </div>
-
-    <div class="Music" id="rockMusic" (click)="navigate('rock')">
-      <label class="anyLabel">Rock</label>
-      <br>
-      <br>
-      <ion-icon name="musical-notes" style="color: white; font-size: 50px"></ion-icon>
-    </div>
 
   </div>
 </div>

@@ -1,5 +1,4 @@
 import { SpotifyService } from './../services/spotify.service';
-import { TestService } from './../test.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -13,16 +12,27 @@ export class SongsPage implements OnInit {
 
   tracksList: any;
   data: any = {};
+  neededGenre: string;
 
   constructor( private spotifyService: SpotifyService,
     private _route: ActivatedRoute) {
+      this.neededGenre = this._route.snapshot.params.genre;
+
+      this._route.queryParams.subscribe(params => {
+        this.neededGenre = params["genre"];
+    });
   }
 
   ngOnInit() {
-   let temp =  this.spotifyService.getTracksStatic()
-   console.log(temp);
-   
-    this.data = JSON.parse(JSON.stringify(this.spotifyService.getTracksStatic()));
+    //get tracks according to the genre from home page
+    this.spotifyService.getTracks(this.neededGenre).subscribe(data => {
+      console.log(data);
+      this.data = data['tracks']['items']
+    },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }

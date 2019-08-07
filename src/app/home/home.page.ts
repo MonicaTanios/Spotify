@@ -1,5 +1,6 @@
+import { SpotifyService } from './../services/spotify.service';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +10,27 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   private trackGenre: string;
-  public allGenres: any  = [];
+  public allGenres: any = [];
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private spotifyService: SpotifyService) {
+      this.spotifyService.getAllGenres().subscribe(data => {
+        console.log(data);
+        this.allGenres = data['genres'];
+      },
+        err => {
+          console.log(err);
+        }
+      )
   }
 
-  navigate(trackGenre) {
-    this.router.navigate(['songs'], { queryParams: { genre: trackGenre } });
+  navigate(trackGenre: string) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "genre": trackGenre
+      }
+  };
+    this.router.navigate(['songs'], navigationExtras);
   }
 
 }

@@ -1,0 +1,15 @@
+.itemsContainer {
+    background-color: #444; 
+    overflow-y: auto; 
+    height: 100%; 
+    width: 100%;
+}
+
+ion-item{
+    --ion-background-color:gray;
+    margin: 3%;
+    width: 70%;
+    color: white;
+    align-self: center;
+ }
+

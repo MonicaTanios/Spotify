@@ -3,15 +3,14 @@
     <ion-title>Songs</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-    <ion-item *ngFor="let track of data" >
-          <ion-avatar>
-            <ion-icon name="play"></ion-icon>
-          </ion-avatar>
-          <ion-label>
-            <h2>{{ track['name'] }}</h2>
-            <p> {{ track['href'] }} </p>
-          </ion-label>
+<div class="itemsContainer">
+    <ion-item *ngFor="let track of data">
+      <ion-avatar>
+        <ion-icon style="font-size: 30px" name="play"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h1> {{ track.name }} </h1>
+        <a style="color: blue;" href="{{ track?.preview_url }}">{{ track?.preview_url }}</a>
+      </ion-label>
     </ion-item>
-</ion-content>
+</div>
