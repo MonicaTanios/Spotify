@@ -3,18 +3,14 @@
     overflow-y: auto; 
     height: 100%; 
     width: 100%;
-    align-content: center;
-    align-items: center;
-    align-self: center;
 }
 
 ion-item{
-    --ion-background-color:gray;
+    --ion-background-color:#444;
     margin: 3%;
     width: 80%;
     color: white;
     margin-left: auto;
     margin-right: auto;
-    display: block;
  }
 
