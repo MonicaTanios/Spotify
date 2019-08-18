@@ -10,10 +10,11 @@ import { Router, NavigationExtras } from '@angular/router';
 export class HomePage {
 
   private trackGenre: string;
-  public allGenres: any = [];
+  public allGenres: any;
 
   constructor(private router: Router,
     private spotifyService: SpotifyService) {
+      this.trackGenre = "";
       this.spotifyService.getAllGenres().subscribe(data => {
         console.log(data);
         this.allGenres = data['genres'];
@@ -22,6 +23,10 @@ export class HomePage {
           console.log(err);
         }
       )
+  }
+
+  ngOnInit() {
+    this.trackGenre = "";
   }
 
   navigate(trackGenre: string) {

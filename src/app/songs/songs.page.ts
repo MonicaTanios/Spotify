@@ -1,7 +1,8 @@
+import { HomePage } from './../home/home.page';
 import { SpotifyService } from './../services/spotify.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-songs',
@@ -10,11 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SongsPage implements OnInit {
 
-  tracksList: any;
+  public tracksList: any;
   data: any = {};
   neededGenre: string;
 
-  constructor( private spotifyService: SpotifyService,
+  constructor( private router: Router,
+    private spotifyService: SpotifyService,
     private _route: ActivatedRoute) {
       this.neededGenre = this._route.snapshot.params.genre;
 
@@ -27,12 +29,17 @@ export class SongsPage implements OnInit {
     //get tracks according to the genre from home page
     this.spotifyService.getTracks(this.neededGenre).subscribe(data => {
       console.log(data);
-      this.data = data['tracks']['items']
+      this.tracksList = data['tracks']['items'] 
     },
       err => {
         console.log(err);
       }
     );
+  }
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    this.router.navigate(['home']);
   }
 
 }

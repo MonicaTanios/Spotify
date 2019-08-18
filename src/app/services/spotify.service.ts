@@ -12,12 +12,12 @@ export class SpotifyService {
     private getGenresURL: string;
     private httpHeaders: HttpHeaders
     private getTracksURL: string;
-
+    
     constructor(private _http: HttpClient) {
         this.httpHeaders = new HttpHeaders({
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer BQC3CZstNheALTc4dNxiKdNd0536VK9dFaXU3XDVhT-tyPEPNRLhWIfBnVWubqb5clONEfIqQEDmqQjKXw9HYQCz2vxqers59YVY4mVa2h6llSJa_T-5cS086Zu5UfzvsExDxS97RItcy6NVvH99h7v3c0ONz3X2ZuxnCmD54oHIX7D9mzqgFXIoh0TJ0cshTBOCC2c3Mm8nOp-3VevZWgh12FxwUODaJ0fjVjNjhO2RrKhAbEnYlj7-dA3PZIoYdRLdckzfJLzHzUQ8u_v22ivMvKTIk58j'
+            'Authorization': 'Bearer BQBYsAqv1wHhvrD-s4Yc6mDyWfT6bJCdqJpixTRz8aWYkjqj3TfdX7MWFyPf2xZJRoTbT0MgfT3A8kydGS1GWSnxqYbWC0e5g17InNq5_Rl2QyUi_nvooB-eOTn7nvGXmk0SXYQZnTpwrW1xCGCXEH72FOwa7QAp7Cz3HGpbvSxq9BNXn6RzloCVxDnP6_sJl_4D4z5bltnn0pPLT7XT6hpz55vJe-siLIgGZGpAKofLSNDDtu_fqoWBHX9ZVtBEePQwmKCdmaQvfIyJBy2ueVlBS8fFMmAy'
         });
     }
 
@@ -277,6 +277,7 @@ export class SpotifyService {
     getTracks(trackGenre: string){
         this.getTracksURL = 'https://api.spotify.com/v1/search?q='+trackGenre+'&type=track&market=US';
         return this._http.get(this.getTracksURL, { headers: this.httpHeaders }).pipe(map(data => data),
+            
             catchError(err => {
                 return Observable.throw(err || 'server error')
             }));
