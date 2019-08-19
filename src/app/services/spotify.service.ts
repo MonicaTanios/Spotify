@@ -12,12 +12,12 @@ export class SpotifyService {
     private getGenresURL: string;
     private httpHeaders: HttpHeaders
     private getTracksURL: string;
-    
+
     constructor(private _http: HttpClient) {
         this.httpHeaders = new HttpHeaders({
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer BQDgZqokU_L8rVX-q0B67LXDoNfrmZToJcocbPWnTL11oOHsWFFue92zdkshz1OuBH8By5QMOrM7EVn-CaYGk4f42Zf7WJyGrvgXSOjF90fXxacjeNi538KbV4_9-MFAC0HoYP2gNrU66aSCxlkc1oS0K0gjF1P1hRUvw5SZxHwkq2s4jRbUDNGLbZRdm2tSPiAoyK722cFdPnm47wITynDM3KDJ4c9ieMw6OcC2INACHlTTAyV7eKsgeiQP_fN4k0SQLOmEYfJF9HEeg-1lJ3kIPuaA7mRW'
+            'Authorization': 'Bearer BQAe31TVy1hozR_A8CDkdEajzaCfdM_2Z72NvkbWo0VhkVxM2_ZKrk7tFmyy7fyxF1STyyDsQEz8RxMvQ3h1UjGaGwqe3tZgjQvZdXXVoCOAF1Rf4KI-AVDgRVet5BqW48WoGCiLNhcrWls-4RYFQYHZtltigddK2T2d4ndbxKWuEOktmDEoIGCB9DZZaF95AzMjhBOm1grCSYElEn-26R8rb2FHCB8S6zlRRmw21g48vAY8_rebJ3Qh5jCrVsxQuJdqd1q5rGaRehAEyMDTwz6QzwXeJysN'
         });
     }
 
@@ -271,22 +271,22 @@ export class SpotifyService {
             catchError(err => {
                 return Observable.throw(err || 'server error')
             }));
-        
+
     }
 
-    getTracks(trackGenre: string){
-        this.getTracksURL = 'https://api.spotify.com/v1/search?q='+trackGenre+'&type=track&market=US';
+    getTracks(trackGenre: string) {
+        this.getTracksURL = 'https://api.spotify.com/v1/search?q=' + trackGenre + '&type=track&market=US';
         return this._http.get(this.getTracksURL, { headers: this.httpHeaders }).pipe(map(data => data),
-            
+
             catchError(err => {
                 return Observable.throw(err || 'server error')
             }));
     }
 
-    getTrackByArtistName(artistName: string){
-        this.getTracksURL = 'https://api.spotify.com/v1/search?q='+artistName+'&type=track&market=US';
+    getTrackByArtistName(artistName: string) {
+        this.getTracksURL = 'https://api.spotify.com/v1/search?q=' + artistName + '&type=track&market=US';
         return this._http.get(this.getTracksURL, { headers: this.httpHeaders }).pipe(map(data => data),
-            
+
             catchError(err => {
                 return Observable.throw(err || 'server error')
             }));

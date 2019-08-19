@@ -23,4 +23,4 @@ const routes: Routes = [
   ],
   declarations: [SearchPage]
 })
-export class SearchPageModule {}
+export class SearchPageModule { }

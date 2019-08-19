@@ -22,7 +22,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: './genres/genres.module#GenresPageModule'
+            loadChildren: '../genres/genres.module#GenresPageModule'
           }
         ]
       },
@@ -31,7 +31,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: './search/search.module#SearchPageModule'
+            loadChildren: '../search/search.module#SearchPageModule'
           }
         ]
       },
@@ -40,7 +40,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: './about/about.module#AboutPageModule'
+            loadChildren: '../about/about.module#AboutPageModule'
           }
         ]
       }
@@ -57,4 +57,4 @@ const routes: Routes = [
   ],
   declarations: [TabsPage]
 })
-export class TabsPageModule {}
+export class TabsPageModule { }

@@ -14,17 +14,17 @@ export class GenresPage implements OnInit {
 
   constructor(private router: Router,
     private spotifyService: SpotifyService) {
-      this.trackGenre = "";
-      this.spotifyService.getAllGenres().subscribe(data => {
-        console.log(data);
-        this.allGenres = data['genres'];
-      },
-        err => {
-          console.log(err);
-        }
-      )
+    this.trackGenre = "";
+    this.spotifyService.getAllGenres().subscribe(data => {
+      console.log(data);
+      this.allGenres = data['genres'];
+    },
+      err => {
+        console.log(err);
+      }
+    )
   }
-  
+
   ngOnInit() {
     this.trackGenre = "";
   }
@@ -32,9 +32,9 @@ export class GenresPage implements OnInit {
   navigate(trackGenre: string) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-          "genre": trackGenre
+        "genre": trackGenre
       }
-  };
+    };
     this.router.navigate(['songs'], navigationExtras);
   }
 

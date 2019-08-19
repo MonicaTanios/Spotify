@@ -4,13 +4,16 @@
   </ion-toolbar>
 </ion-header>
 <div class="itemsContainer">
-    <ion-item *ngFor="let track of tracksList">
-      <ion-avatar>
-        <ion-icon style="font-size: 30px" name="musical-notes"></ion-icon>
-      </ion-avatar>
-      <ion-label>
-        <h1> {{ track.name }} </h1>
-        <a style="color: white;" href="{{ track?.preview_url }}">{{ track?.preview_url }}</a>
-      </ion-label>
-    </ion-item>
+  <ion-item *ngFor="let track of tracksList">
+    <ion-avatar>
+      <ion-icon style="font-size: 30px" name="musical-notes"></ion-icon>
+    </ion-avatar>
+    <ion-label>
+      <h1> {{ track.name }} </h1>
+      <a style="color: white;" href="{{ track?.preview_url }}">{{ track?.preview_url }}</a>
+    </ion-label>
+    <!-- <button ion-button block (click)="addEvent();" style="background-color: transparent; size: 100px;">
+      <ion-icon name="heart" [ngStyle]="{'color': buttonColor}"></ion-icon>
+    </button> -->
+  </ion-item>
 </div>

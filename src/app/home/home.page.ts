@@ -15,7 +15,7 @@ export class HomePage {
   ngOnInit() {
   }
 
-  goToTabs(){
+  goToTabs() {
     this.router.navigate(['tabs']);
   }
 

@@ -14,7 +14,7 @@ export class SearchPage implements OnInit {
   ngOnInit() {
   }
 
-  getTracks(artist: string){
+  getTracks(artist: string) {
     this.spotifyService.getTrackByArtistName(artist).subscribe(data => {
       console.log(data);
       this.tracksList = data['tracks']['items'];

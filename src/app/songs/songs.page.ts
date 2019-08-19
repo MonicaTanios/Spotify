@@ -14,14 +14,19 @@ export class SongsPage implements OnInit {
   public tracksList: any;
   data: any = {};
   neededGenre: string;
+  // buttonColor: string = 'white'; //Default Color
 
-  constructor( private router: Router,
+  // addEvent() {
+  //   this.buttonColor = 'red'; //desired Color
+  // }
+
+  constructor(private router: Router,
     private spotifyService: SpotifyService,
     private _route: ActivatedRoute) {
-      this.neededGenre = this._route.snapshot.params.genre;
+    this.neededGenre = this._route.snapshot.params.genre;
 
-      this._route.queryParams.subscribe(params => {
-        this.neededGenre = params["genre"];
+    this._route.queryParams.subscribe(params => {
+      this.neededGenre = params["genre"];
     });
   }
 
@@ -29,7 +34,7 @@ export class SongsPage implements OnInit {
     //get tracks according to the genre from home page
     this.spotifyService.getTracks(this.neededGenre).subscribe(data => {
       console.log(data);
-      this.tracksList = data['tracks']['items'] 
+      this.tracksList = data['tracks']['items']
     },
       err => {
         console.log(err);
