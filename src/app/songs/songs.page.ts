@@ -14,11 +14,6 @@ export class SongsPage implements OnInit {
   public tracksList: any;
   data: any = {};
   neededGenre: string;
-  // buttonColor: string = 'white'; //Default Color
-
-  // addEvent() {
-  //   this.buttonColor = 'red'; //desired Color
-  // }
 
   constructor(private router: Router,
     private spotifyService: SpotifyService,
