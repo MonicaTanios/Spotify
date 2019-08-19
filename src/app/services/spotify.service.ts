@@ -17,8 +17,17 @@ export class SpotifyService {
         this.httpHeaders = new HttpHeaders({
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer BQAe31TVy1hozR_A8CDkdEajzaCfdM_2Z72NvkbWo0VhkVxM2_ZKrk7tFmyy7fyxF1STyyDsQEz8RxMvQ3h1UjGaGwqe3tZgjQvZdXXVoCOAF1Rf4KI-AVDgRVet5BqW48WoGCiLNhcrWls-4RYFQYHZtltigddK2T2d4ndbxKWuEOktmDEoIGCB9DZZaF95AzMjhBOm1grCSYElEn-26R8rb2FHCB8S6zlRRmw21g48vAY8_rebJ3Qh5jCrVsxQuJdqd1q5rGaRehAEyMDTwz6QzwXeJysN'
+            'Authorization': 'Bearer BQBkfVfqc0-ET7Qu0nbROQhnTYtcL9TQD3ylznFEF1EbIyBnlPHi6pVGfJf-ls6nw5Ebxn3K-YpPSgeFH-R1amLd2U9kK0hYPkbyyip6zXy56Cx8XQeY5nUdNNtiPv86h6X6vFFnHFaJk_bvZINqEnwG3EQvnwDE9C8v1E3p95JMQROMBBrhj9210-6Y-v0PXXrtgLtcn6QS4rL9kCjjJ7dgWhKHNX46J79S6_jQzepylAOklDkYZK8ECeEgjGCw1SQ5uUCV5Ze09ljAqJBvnIhJeqCpYS7q'
         });
+    }
+
+    getTrackImage(id: string) {
+        this.getGenresURL = 'https://api.spotify.com/v1/tracks/'+id+'?market=US';
+        return this._http.get(this.getGenresURL, { headers: this.httpHeaders }).pipe(map(data => data),
+
+            catchError(err => {
+                return Observable.throw(err || 'server error')
+            }));
     }
 
     getTracksStatic() {
@@ -268,6 +277,7 @@ export class SpotifyService {
     getAllGenres() {
         this.getGenresURL = 'https://api.spotify.com/v1/recommendations/available-genre-seeds';
         return this._http.get(this.getGenresURL, { headers: this.httpHeaders }).pipe(map(data => data),
+
             catchError(err => {
                 return Observable.throw(err || 'server error')
             }));
