@@ -17,7 +17,7 @@ export class SpotifyService {
         this.httpHeaders = new HttpHeaders({
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer BQBYsAqv1wHhvrD-s4Yc6mDyWfT6bJCdqJpixTRz8aWYkjqj3TfdX7MWFyPf2xZJRoTbT0MgfT3A8kydGS1GWSnxqYbWC0e5g17InNq5_Rl2QyUi_nvooB-eOTn7nvGXmk0SXYQZnTpwrW1xCGCXEH72FOwa7QAp7Cz3HGpbvSxq9BNXn6RzloCVxDnP6_sJl_4D4z5bltnn0pPLT7XT6hpz55vJe-siLIgGZGpAKofLSNDDtu_fqoWBHX9ZVtBEePQwmKCdmaQvfIyJBy2ueVlBS8fFMmAy'
+            'Authorization': 'Bearer BQDgZqokU_L8rVX-q0B67LXDoNfrmZToJcocbPWnTL11oOHsWFFue92zdkshz1OuBH8By5QMOrM7EVn-CaYGk4f42Zf7WJyGrvgXSOjF90fXxacjeNi538KbV4_9-MFAC0HoYP2gNrU66aSCxlkc1oS0K0gjF1P1hRUvw5SZxHwkq2s4jRbUDNGLbZRdm2tSPiAoyK722cFdPnm47wITynDM3KDJ4c9ieMw6OcC2INACHlTTAyV7eKsgeiQP_fN4k0SQLOmEYfJF9HEeg-1lJ3kIPuaA7mRW'
         });
     }
 
@@ -276,6 +276,15 @@ export class SpotifyService {
 
     getTracks(trackGenre: string){
         this.getTracksURL = 'https://api.spotify.com/v1/search?q='+trackGenre+'&type=track&market=US';
+        return this._http.get(this.getTracksURL, { headers: this.httpHeaders }).pipe(map(data => data),
+            
+            catchError(err => {
+                return Observable.throw(err || 'server error')
+            }));
+    }
+
+    getTrackByArtistName(artistName: string){
+        this.getTracksURL = 'https://api.spotify.com/v1/search?q='+artistName+'&type=track&market=US';
         return this._http.get(this.getTracksURL, { headers: this.httpHeaders }).pipe(map(data => data),
             
             catchError(err => {

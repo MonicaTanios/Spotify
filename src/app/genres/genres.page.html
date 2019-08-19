@@ -1,0 +1,27 @@
+<div class="mainPage-container">
+
+  <table>
+      <tr>
+        <td>
+          <img src="https://media.giphy.com/media/cMWU282WTIdihQ6F1X/giphy.gif" style="float: left;" />
+        </td>
+        <td>
+          <h1>Choose your favourite genre here...</h1>
+        </td>
+        <td>
+          <img src="https://media.giphy.com/media/cMWU282WTIdihQ6F1X/giphy.gif" style="float: left;" />
+        </td>
+      </tr>
+  </table>
+
+    <div class="mainGrid">
+
+      <div class="Music" *ngFor="let genre of allGenres" (click)="navigate(genre)">
+        <label class="anyLabel">{{ genre }}</label>
+        <br>
+        <br>
+        <ion-icon name="musical-notes" style="color: white; font-size: 50px"></ion-icon>
+      </div>
+
+    </div>
+</div> 

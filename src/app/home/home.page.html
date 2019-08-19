@@ -1,15 +1,24 @@
 <div class="mainPage-container">
 
-  <h1>Choose your favourite genre here...</h1>
-
-  <div class="mainGrid">
-
-    <div class="Music" *ngFor="let genre of allGenres" (click)="navigate(genre)">
-        <label class="anyLabel">{{ genre }}</label> 
-        <br>
-        <br>
-        <ion-icon name="musical-notes" style="color: white; font-size: 50px"></ion-icon>
-      </div>
-
+  <div>
+    <br>
+    <h1>Welcome to Spotify !</h1>
+    <br>
+    <br>
+    <h2 style="color: whitesmoke; text-align: center;">
+      With Spotify, you can play millions of songs and podcasts for free.
+      Listen to the songs and podcasts you love and enjoy music from all over the world.
+    </h2>
+    <br>
+    <br>
+    <img src="https://data.whicdn.com/images/70187432/original.gif"
+      style="margin-left: auto; margin-right: auto; display: block;">
+    <br>
+    <br>
+    <div style="text-align: center;">
+      <ion-button size="large" shape="round" fill="outline" (click)="goToTabs()">
+        Get Started
+      </ion-button>
+    </div>
   </div>
 </div>

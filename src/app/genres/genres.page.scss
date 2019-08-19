@@ -1,0 +1,43 @@
+
+.mainPage-container {
+    align-content: center;
+    font-family: sans-serif;
+    padding: 2.5%;
+    background-color: #444;
+    position: absolute; top: 0; left: 0; height: 100%; width: 100%;
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.mainGrid {
+    display: inline-flex;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: #444;
+    
+}
+
+.Music {
+    color: white;
+    font-weight: 900;
+    border-radius: 5%;
+    padding: 10%;
+    margin: 1%;
+    font-size: 150%;
+    width: 48%;
+    text-align: center;
+    line-height: 50%;
+    background-color: grey;
+}
+.anyLabel {
+    color: white;
+    opacity: 5;
+}
+
